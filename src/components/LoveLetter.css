@@ -1,0 +1,258 @@
+.letter-section {
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at top, #32104d 0%, transparent 55%),
+    linear-gradient(180deg, #09030f, #160822, #050208);
+  color: white;
+  overflow: hidden;
+}
+
+.letter-heading {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.letter-heading > p:first-child {
+  color: #c084fc;
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-bottom: 18px;
+}
+
+.letter-heading h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 8vw, 52px);
+  line-height: 1.3;
+  text-shadow: 0 0 25px #a855f7;
+}
+
+.letter-heading h1 span {
+  display: block;
+  color: #c084fc;
+}
+
+.letter-heading > p:last-child {
+  color: #c4b5d5;
+  font-size: 13px;
+  margin-top: 18px;
+}
+
+.envelope-container {
+  perspective: 1000px;
+  margin: 20px 0 40px;
+}
+
+.envelope {
+  position: relative;
+  width: min(300px, 80vw);
+  height: 190px;
+  cursor: pointer;
+  background: #32104d;
+  border-radius: 8px;
+  box-shadow: 0 0 35px #9333ea70;
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #581c87, #251036);
+  border-radius: 8px;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #7e22ce, #3b0764);
+  clip-path: polygon(0 0, 50% 65%, 100% 0, 100% 100%, 0 100%);
+  border-radius: 8px;
+  z-index: 3;
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #c084fc, #6b21a8);
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  transform-origin: top;
+  z-index: 4;
+  backface-visibility: hidden;
+}
+
+.envelope-heart {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  z-index: 5;
+  filter: drop-shadow(0 0 10px #c084fc);
+}
+
+.letter-paper {
+  position: absolute;
+  width: 88%;
+  min-height: 180px;
+  left: 6%;
+  top: 0;
+  padding: 22px 15px;
+  text-align: center;
+  color: #32104d;
+  background: linear-gradient(145deg, #fff, #f3e8ff);
+  border-radius: 8px;
+  box-shadow: 0 0 25px #00000070;
+  z-index: 2;
+}
+
+.letter-paper span {
+  font-size: 25px;
+}
+
+.letter-paper h2 {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.letter-paper p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.letter-instruction {
+  color: #c084fc;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-top: 15px;
+}
+
+@media (max-width: 400px) {
+  .letter-section {
+    padding: 65px 15px;
+  }
+
+  .letter-heading {
+    margin-bottom: 80px;
+  }
+}
+
+/* Mobile layout improvements */
+
+.letter-heading {
+  width: 100%;
+  max-width: 500px;
+  padding: 0 12px;
+  margin-bottom: 150px;
+}
+
+.letter-heading > p:first-child {
+  font-size: clamp(8px, 2.5vw, 10px);
+  letter-spacing: 2px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.letter-heading > p:last-child {
+  line-height: 1.8;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.envelope-container {
+  margin-top: 20px;
+}
+
+.letter-paper {
+  background: linear-gradient(145deg, #fff, #f3e8ff) !important;
+  color: #32104d !important;
+}
+
+/* Long letter layout */
+.letter-paper {
+  width: min(88vw, 420px);
+  max-height: 65vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  border-radius: 14px;
+  padding: 22px 18px;
+  scrollbar-width: thin;
+  scrollbar-color: #9333ea #f3e8ff;
+}
+
+.letter-content {
+  color: #32104d;
+  text-align: left;
+  font-family: Georgia, serif;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.letter-content h2 {
+  text-align: center;
+  color: #7e22ce;
+  font-size: 19px;
+  margin: 12px 0 20px;
+}
+
+.letter-content p {
+  font-size: 14px;
+  margin: 0 0 18px;
+}
+
+.letter-content h3 {
+  text-align: center;
+  color: #7e22ce;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 25px 0;
+}
+
+.letter-content .letter-signature {
+  text-align: center;
+  font-style: italic;
+  color: #7e22ce;
+  margin-top: 25px;
+}
+
+
+/* Open envelope - final mobile layout fix */
+
+.envelope.opened {
+  background: transparent;
+  box-shadow: none;
+}
+
+.envelope.opened .envelope-front,
+.envelope.opened .envelope-flap,
+.envelope.opened .envelope-heart {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.letter-paper {
+  left: 50%;
+  translate: -50% 0;
+  top: 0;
+  width: min(88vw, 420px);
+  max-height: 65vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  z-index: 6;
+  background: #fff !important;
+  color: #32104d !important;
+  border: 2px solid #c084fc;
+  box-shadow: 0 0 30px #9333ea70;
+  -webkit-overflow-scrolling: touch;
+}
+
+.letter-content {
+  color: #32104d !important;
+}
+

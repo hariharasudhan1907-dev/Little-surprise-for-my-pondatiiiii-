@@ -57,7 +57,7 @@ export default function FutureTimeline({ onContinue }) {
                   >
                     <img
                       className="future-image"
-                      src={`/images/future/${item.image}`}
+                      src={`${import.meta.env.BASE_URL}images/future/${item.image}`}
                       alt={item.title}
                       loading="lazy"
                     />

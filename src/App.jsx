@@ -6,9 +6,9 @@ import FloatingHearts from "./components/FloatingHearts";
 import "./App.css";
 
 const musicFiles = {
-  gift: "/music/Giftbox.mp3",
-  future: "/music/Timeline.mp3",
-  letter: "/music/Letter.mp3",
+  gift: `${import.meta.env.BASE_URL}music/Giftbox.mp3`,
+  future: `${import.meta.env.BASE_URL}music/Timeline.mp3`,
+  letter: `${import.meta.env.BASE_URL}music/Letter.mp3`,
 };
 
 function App() {
